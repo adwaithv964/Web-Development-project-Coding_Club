@@ -4,19 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pages</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+         
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            padding: 20px;
+        }
+
+         
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+         
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+         
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+         
+        ul li {
+            margin: 10px 0;
+        }
+
+         
+        ul li a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #007bff;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+ 
+        ul li a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        
+        @media (min-width: 600px) {
+            ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my Pages</h1>
-    <p>This is a simple HTML page.</p>
+    <h1>Welcome to my Page</h1>
+    <p>My project Roadmap..</p>
 
     <ul>
         <li><a href="class_1.html">Class 1 Page</a></li>
         <li><a href="class_2.html">Class 2 Page</a></li>
         <li><a href="task_1.html">Task 1 Page</a></li>
         <li><a href="task_2.html">Task 2 Page</a></li>
-        <li><a href="class_3.html">class 3 Page</a></li>
-        <li><a href="task_3.html">Task 3</a></li>
+        <li><a href="class_3.html">Class 3 Page</a></li>
+        <li><a href="task_3.html">Task 3 Page</a></li>
     </ul>
-
 </body>
 </html>
