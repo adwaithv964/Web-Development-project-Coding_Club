@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: lightgreen;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+        }
+
+        aside {
+            background-color: #d2b48c; /* Tan color */
+            width: 25%;
+            padding: 20px;
+        }
+
+        aside ul {
+            list-style-type: none;
+        }
+
+        aside a {
+            text-decoration: none;
+            color: purple;
+            font-size: 1.2em;
+        }
+
+        section {
+            background-color: #5f9ea0; /* Cadet blue color */
+            width: 75%;
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 2em;
+        }
+
+        section p {
+            font-size: 1.2em;
+        }
+
+        footer {
+            background-color: lightgreen;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <main>
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <section>
+            <h2>Home</h2>
+            <p>This is home page</p>
+        </section>
+    </main>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
