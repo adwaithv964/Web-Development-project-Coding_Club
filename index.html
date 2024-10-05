@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pages</title>
     <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --accent-color: #f39c12;
+            --background-color: #f7f9fc;
+            --text-color: #333;
+            --hover-bg: #4a89e2;
+            --card-bg: #ffffff;
+            --border-radius: 15px;
+            --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease-in-out;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,16 +25,38 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--hover-bg);
         }
 
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 2.5em;
         }
 
@@ -35,41 +70,63 @@
         ul {
             list-style-type: none;
             display: grid;
-            grid-template-columns: 1fr; /* Default to one column */
-            gap: 10px; /* Space between items */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
             padding: 0;
+            margin-bottom: auto;
         }
 
         ul li {
-            display: flex;
-            justify-content: center; /* Center the link within the box */
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
         }
 
         ul li a {
             text-decoration: none;
-            font-size: 1.2em;
-            color: #007bff;
-            padding: 20px; /* Increase padding for better visual */
-            border: 2px solid #007bff;
-            border-radius: 5px;
-            text-align: center; /* Center text inside the link box */
-            width: 100%; /* Full width of the box */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-            transition: background-color 0.3s, color 0.3s;
+            color: var(--text-color);
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            width: 100%;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+        }
+
+        ul li a img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--accent-color);
         }
 
         ul li a:hover {
-            background-color: #007bff;
+            background-color: var(--hover-bg);
             color: white;
+            transform: translateY(-5px);
         }
 
-        @media (min-width: 600px) {
-            ul {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-            }
+        ul li a:hover img {
+            transform: scale(1.05);
         }
 
-        @media (max-width: 599px) {
+        ul li a::before {
+            content: "🔗";
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
             }
@@ -78,35 +135,326 @@
                 font-size: 1em;
             }
 
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        footer {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
             ul li a {
                 font-size: 1em;
                 padding: 15px;
             }
         }
+
+        @media (min-width: 1200px) {
+            body {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            ul {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            z-index: 10;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--hover-bg);
+        }
+        ul li a img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.65;  
+        }
+
+        @keyframes fadeIn {
+             0% {
+                 opacity: 0;
+                 transform: translateY(20px);
+                }
+             100% {
+                 opacity: 1;
+                 transform: translateY(0);
+                }
+        }
+
+ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--accent-color);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+ul li a img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--accent-color);
+    opacity: 0.65; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+ul li a img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--accent-color);
+    opacity: 0.45; /* Set opacity to 45% */
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Include box-shadow transition */
+}
+
+ul li a:hover img {
+    transform: scale(1.05); /* Slightly scale the image */
+    opacity: 1; /* Make the image fully opaque on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: var(--box-shadow);
+    z-index: 10;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--hover-bg);
+    transform: scale(1.1); /* Scale button on hover */
+}
+
+/* Fade-in effect for the header and footer */
+header, footer {
+    opacity: 0;
+    animation: fadeIn 0.7s forwards;
+    animation-delay: 0.2s;
+}
+.name-description {
+    font-size: 1.5em;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: 0.4s;
+}
+
+
     </style>
 </head>
 <body>
-    <h1>Welcome to my Page</h1>
-    <p>My project Roadmap..</p>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <h1>Welcome to My Page</h1>
+        <div class="name-description">Adwaith V</div> <!-- Added name description -->
+    </header>
+    
+    <main>
+        
+        <p>My Coding Club Roadmap..</p>
 
-    <ul>
-        <li><a href="class_1.html">Class 1 Page</a></li>
-        <li><a href="class_2.html">Class 2 Page</a></li>
-        <li><a href="task_1.html">Task 1 Page</a></li>
-        <li><a href="task_2.html">Task 2 Page</a></li>
-        <li><a href="class_3.html">Class 3 Page</a></li>
-        <li><a href="task_3(i).html">Task 3 (i) Page</a></li>
-        <li><a href="task_3(ii).html">Task 3 (ii) Page</a></li>
-        <li><a href="Class_4(i)_.html">Class 4 (i) Page</a></li>
-        <li><a href="Class_4(ii)_.html">Class 4 (ii) Page</a></li>
-        <li><a href="class_4(iii).html">Class 4 (iii) Page</a></li>
-        <li><a href="Task_4(i).html">Task 4 (i) Page</a></li>
-        <li><a href="Task_4(ii).html">Task 4 (ii) Page</a></li>
-        <li><a href="Class_5(i)_.html">Class 5 (i) Page</a></li>
-        <li><a href="class_5(ii)_.html">Class 5 (ii) Page</a></li>
-        <li><a href="class_5(iii)_.html">Class 5 (iii) Page</a></li>
-        <li><a href="Class_5(iv).html">Class 5 (iv) Page</a></li>
-        <li><a href="Class_5(v)_.html">Class 5 (v) Page</a></li>
-    </ul>
+        <ul>
+            <li>
+                <a href="class_1.html">
+                    <img src=" https://wallpaperaccess.com/full/4635743.jpg" alt="Class 1">
+                    Class 1 Page
+                </a>
+            </li>
+            <li>
+                <a href="class_2.html">
+                    <img src=" https://xperti.io/wp-content/uploads/2023/08/How-to-use-Java-Generic-Interface.jpg" alt="Class 2">
+                    Class 2 Page
+                </a>
+            </li>
+            <li>
+                <a href="task_1.html">
+                    <img src=" https://th.bing.com/th/id/OIP.h-VNC3CCdy0ceIezU_DPfAHaE8?pid=ImgDet&w=184&h=122&c=7&dpr=1.3" alt="Task 1">
+                    Task 1 Page
+                </a>
+            </li>
+            <li>
+                <a href="task_2.html">
+                    <img src=" https://c8.alamy.com/comp/MP6D15/job-opening-front-end-developer-3d-MP6D15.jpg" alt="Task 2">
+                    Task 2 Page
+                </a>
+            </li>
+            <li>
+                <a href="class_3.html">
+                    <img src=" https://images.hdqwalls.com/download/internet-technology-hg-3840x2160.jpg" alt="Class 3">
+                    Class 3 Page
+                </a>
+            </li>
+            <li>
+                <a href="task_3(i).html">
+                    <img src=" https://th.bing.com/th/id/R.bc88c0e6f67aba1ebf5739d1b1dd34fb?rik=WrveH4yeOoKnPQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fa%2fd%2f1%2f1090522-best-cool-tech-backgrounds-2560x1600-for-iphone-5s.jpg&ehk=SkRUcgXIwtR5QYlNTfoxYBgnJBBV6OsHQIo14vZCX34%3d&risl=&pid=ImgRaw&r=0" alt="Task 3 (i)">
+                    Task 3 (i) Page
+                </a>
+            </li>
+            <li>
+                <a href="task_3(ii).html">
+                    <img src=" https://thumbs.dreamstime.com/b/programming-web-pages-html-css-code-desktop-computer-programming-web-pages-html-css-code-desktop-252255664.jpg" alt="Task 3 (ii)">
+                    Task 3 (ii) Page
+                </a>
+            </li>
+            <li>
+                <a href="Class_4(i)_.html">
+                    <img src=" https://th.bing.com/th/id/OIP.-sA4vyAVTz3pIYfZyPWJ7gAAAA?rs=1&pid=ImgDetMain" alt="Class 4 (i)">
+                    Class 4 (i) Page
+                </a>
+            </li>
+            <li>
+                <a href="Class_4(ii)_.html">
+                    <img src=" https://th.bing.com/th/id/OIP.os9bIByDOGHlcSACI7yj0QAAAA?rs=1&pid=ImgDetMain" alt="Class 4 (ii)">
+                    Class 4 (ii) Page
+                </a>
+            </li>
+            <li>
+                <a href="class_4(iii).html">
+                    <img src=" https://techwiser.com/wp-content/uploads/2022/03/Websites-to-find-HTML-and-CSS-Projects-585x390.png" alt="Class 4 (iii)">
+                    Class 4 (iii) Page
+                </a>
+            </li>
+            <li>
+                <a href="Task_4(i).html">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Task 4 (i)">
+                    Task 4 (i) Page
+                </a>
+            </li>
+            <li>
+                <a href="Task_4(ii).html">
+                    <img src=" https://i.ytimg.com/vi/wYuQM7__D1M/maxresdefault.jpg" alt="Task 4 (ii)">
+                    Task 4 (ii) Page
+                </a>
+            </li>
+            <li>
+                <a href="task_4(iii).html">
+                    <img src=" https://png.pngtree.com/template/20220516/ourmid/pngtree-responsive-design-isometric-landing-page-banner-image_1502648.jpg" alt="Task 4 (iii)">
+                    Task 4 (iii) Page
+                </a>
+            </li>
+            <li>
+                <a href="Task_4(i).html">
+                    <img src=" https://wallpapercave.com/wp/wp9641822.jpg" alt="Task 4 (i)">
+                    Task 4 (i) Page
+                </a>
+            </li>
+            <li>
+                <a href="Task_4(ii).html">
+                    <img src="https://kenzie.snhu.edu/wp-content/uploads/2020/11/AdobeStock_241083104-1080x840.jpg" alt="Task 4 (ii)">
+                    Task 4 (ii) Page
+                </a>
+            </li>
+            <li>
+                <a href="Class_5(i)_.html">
+                    <img src="https://wallpaperaccess.com/full/4635749.jpg" alt="Class 5 (i)">
+                    Class 5 (i) Page
+                </a>
+            </li>
+            <li>
+                <a href="class_5(ii)_.html">
+                    <img src="https://bmsastech.com/wp-content/uploads/2020/05/back-end-scaled.jpg" alt="Class 5 (ii)">
+                    Class 5 (ii) Page
+                </a>
+            </li>
+            <li>
+                <a href="Class_5(iii)_.html">
+                    <img src="https://c8.alamy.com/comp/2DEDDK2/web-design-inscription-against-laptop-and-code-background-learn-web-design-computer-courses-training-2DEDDK2.jpg" alt="Class 5 (iii)">
+                    Class 5 (iii) Page
+                </a>
+            </li>
+            <li>
+                <a href="Class_5(iv).html">
+                    <img src="https://i.pinimg.com/originals/8c/28/30/8c2830f85881caa01d9b736635c3a8cb.jpg" alt="Class 5 (iv)">
+                    Class 5 (iv) Page
+                </a>
+            </li>
+            <li>
+                <a href="Class_5(v)_.html">
+                    <img src=" https://th.bing.com/th/id/OIP.7lC8K537H9jDq3YooO-2_wHaEj?rs=1&pid=ImgDetMain" alt="Class 5 (v)">
+                    Class 5 (v) Page
+                </a>
+            </li>
+        </ul>
+
+        <button class="scroll-to-top hidden" id="scrollToTop">↑ Scroll to Top</button>
+    </main>
+
+    <footer>
+        <p>© 2024 My Page</p>
+    </footer>
+
+    <script>
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        };
+
+        scrollToTopBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
 </body>
 </html>
