@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 50%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            text-align: center;
+            border: 5px solid yellow;  
+        }
+
+        th, td {
+            padding: 15px;
+        }
+
+        th {
+            background-color: #b03b61;
+            color: white;
+        }
+
+        td {
+            background-color: #f4d6d8;
+            font-weight: bold; 
+        }
+
+        td a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        td:hover {
+            background-color: #f5a6b8;
+        }
+
+        tr:hover td {
+            background-color: #f5a6b8;
+        }
+
+        .header {
+            background-color: #b03b61;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr class="header">
+        <th>Reg_id</th>
+        <th>Subject</th>
+        <th>Hobby</th>
+    </tr>
+    <tr>
+        <td>101</td>
+        <td><a href="https://www.learn-c.org">C</a></td>
+        <td>Reading</td>
+    </tr>
+    <tr>
+        <td>101</td>
+        <td><a href="https://www.java.com">JAVA</a></td>
+        <td>Singing</td>
+    </tr>
+    <tr>
+        <td>102</td>
+        <td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/">C#</a></td>
+        <td>Cricket</td>
+    </tr>
+    <tr>
+        <td>102</td>
+        <td><a href="https://www.php.net/">PHP</a></td>
+        <td>Football</td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+
