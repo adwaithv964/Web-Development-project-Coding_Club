@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pages</title>
     <style>
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-         
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
@@ -20,7 +18,6 @@
             padding: 20px;
         }
 
-         
         h1 {
             text-align: center;
             color: #333;
@@ -28,7 +25,6 @@
             font-size: 2.5em;
         }
 
-         
         p {
             text-align: center;
             margin-bottom: 20px;
@@ -36,41 +32,55 @@
             color: #555;
         }
 
-         
         ul {
             list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr; /* Default to one column */
+            gap: 10px; /* Space between items */
+            padding: 0;
         }
 
-         
         ul li {
-            margin: 10px 0;
+            display: flex;
+            justify-content: center; /* Center the link within the box */
         }
 
-         
         ul li a {
             text-decoration: none;
             font-size: 1.2em;
             color: #007bff;
-            padding: 10px 20px;
+            padding: 20px; /* Increase padding for better visual */
             border: 2px solid #007bff;
             border-radius: 5px;
+            text-align: center; /* Center text inside the link box */
+            width: 100%; /* Full width of the box */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
             transition: background-color 0.3s, color 0.3s;
         }
- 
+
         ul li a:hover {
             background-color: #007bff;
             color: white;
         }
 
-        
         @media (min-width: 600px) {
             ul {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+            }
+        }
+
+        @media (max-width: 599px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            ul li a {
+                font-size: 1em;
+                padding: 15px;
             }
         }
     </style>
@@ -93,7 +103,7 @@
         <li><a href="Task_4(i).html">Task 4 (i) Page</a></li>
         <li><a href="Task_4(ii).html">Task 4 (ii) Page</a></li>
         <li><a href="Class_5(i)_.html">Class 5 (i) Page</a></li>
-        <li><a href="class_5(ii)_.html">Class 5 (ii)Page</a></li>
+        <li><a href="class_5(ii)_.html">Class 5 (ii) Page</a></li>
         <li><a href="class_5(iii)_.html">Class 5 (iii) Page</a></li>
         <li><a href="Class_5(iv).html">Class 5 (iv) Page</a></li>
         <li><a href="Class_5(v)_.html">Class 5 (v) Page</a></li>
