@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Form Table Styles */
+        .registration-form {
+            background-color: #8ded8d;
+            border: 2px solid #006600;
+            border-radius: 10px;
+            padding: 20px;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #006600; /* Borders for table cells */
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: 1px solid #006600;
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        input[type="date"], 
+        input[type="file"], 
+        select {
+            width: 95%;
+            padding: 5px;
+        }
+
+        input[type="radio"], 
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /* Button Styles */
+        .button-section {
+            text-align: center;
+        }
+
+        button {
+            background-color: #006600;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #004d00;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Student Registration</h1>
+    <form class="registration-form">
+        <!-- Full Form Table -->
+        <table>
+            <!-- Firstname and Lastname -->
+            <tr>
+                <td>Firstname</td>
+                <td><input type="text" name="firstname"></td>
+                <td>Lastname</td>
+                <td><input type="text" name="lastname"></td>
+            </tr>
+            
+            <!-- Photo and Date of Birth -->
+            <tr>
+                <td>Photo</td>
+                <td><input type="file" name="photo"></td>
+                <td>Date of Birth</td>
+                <td><input type="date" name="dob"></td>
+            </tr>
+
+            <!-- Email -->
+            <tr>
+                <td>Email</td>
+                <td colspan="3"><input type="email" name="email"></td>
+            </tr>
+
+            <!-- Mobile Number -->
+            <tr>
+                <td>Mobile Number</td>
+                <td colspan="3"><input type="tel" name="mobile"></td>
+            </tr>
+
+            <!-- Gender -->
+            <tr>
+                <td>Gender</td>
+                <td colspan="3">
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </td>
+            </tr>
+
+            <!-- Address -->
+            <tr>
+                <td>Address</td>
+                <td colspan="3"><input type="text" name="address"></td>
+            </tr>
+
+            <!-- City and Pincode -->
+            <tr>
+                <td>City</td>
+                <td><input type="text" name="city"></td>
+                <td>Pincode</td>
+                <td><input type="text" name="pincode"></td>
+            </tr>
+
+            <!-- State and Country -->
+            <tr>
+                <td>State</td>
+                <td><input type="text" name="state"></td>
+                <td>Country</td>
+                <td>
+                    <select name="country">
+                        <option value="India">India</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Hobbies -->
+            <tr>
+                <td>Hobbies</td>
+                <td colspan="3">
+                    <input type="checkbox" name="hobby" value="singing"> Singing
+                    <input type="checkbox" name="hobby" value="drawing"> Drawing
+                </td>
+            </tr>
+        </table>
+
+        <!-- Qualification Section -->
+        <h3>Qualification</h3>
+        <table>
+            <tr>
+                <th>Slno</th>
+                <th>Examination</th>
+                <th>Board</th>
+                <th>Percentage</th>
+                <th>Year of Passing</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Class 10</td>
+                <td><input type="text" name="board10"></td>
+                <td><input type="text" name="percentage10"></td>
+                <td><input type="text" name="year10"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Class 12</td>
+                <td><input type="text" name="board12"></td>
+                <td><input type="text" name="percentage12"></td>
+                <td><input type="text" name="year12"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Degree</td>
+                <td><input type="text" name="boardDegree"></td>
+                <td><input type="text" name="percentageDegree"></td>
+                <td><input type="text" name="yearDegree"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Post Graduation</td>
+                <td><input type="text" name="boardPG"></td>
+                <td><input type="text" name="percentagePG"></td>
+                <td><input type="text" name="yearPG"></td>
+            </tr>
+        </table>
+
+        <!-- Courses Applied For -->
+        <h3>Courses Applied For</h3>
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input type="checkbox" name="course" value="BSC"> BSC
+                    <input type="checkbox" name="course" value="BCA"> BCA
+                    <input type="checkbox" name="course" value="BA"> BA
+                </td>
+            </tr>
+        </table>
+
+        <!-- Buttons -->
+        <div class="button-section">
+            <button type="submit">OK</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>
+</html>
